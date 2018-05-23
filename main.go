@@ -131,6 +131,9 @@ func checkErr(err error) {
 	}
 }
 
+/*
+ *  omero2cnb [db_host] [dbname] [user] [passwd] [omero_server]
+ */
 func main() {
 	host := os.Args[1]
 	dbname := os.Args[2]

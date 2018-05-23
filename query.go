@@ -7,7 +7,7 @@ import (
 )
 
 func getParentIDType(annotationID int, db *sql.DB) (int, string, bool) {
-	var t = []string{"image", "well", "project", "dataset"}
+	var t = []string{"image", "well", "project", "dataset", "screen"}
 	for _, v := range t {
 		if idx, ok := _getParentID(annotationID, db, v); ok {
 			fmt.Println(idx, v)
