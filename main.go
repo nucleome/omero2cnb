@@ -177,6 +177,7 @@ func main() {
 	//add manager
 	//manager := Manager{dbmem, ""}
 	//manager.ServeTo(router)
+
 	binManager := BinindexRouter{dbindex, dbmem, "omero", omero}
 	binManager.ServeTo(router)
 
@@ -189,7 +190,7 @@ func main() {
 			w.Write([]byte("{'error':'not found'}"))
 		}
 	})
-
+	router.Use(cred)
 	go http.ListenAndServe(":"+strconv.Itoa(port), router)
 
 	//TODO Process Updating Data
