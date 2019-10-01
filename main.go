@@ -183,7 +183,6 @@ func main() {
 	binManager.ServeTo(router)
 
 	router.HandleFunc("/version", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
 		a, err2 := json.Marshal(app)
 		if err2 == nil {
 			w.Write(a)
