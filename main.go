@@ -13,6 +13,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/lib/pq"
+	"github.com/nimezhu/nbdata"
 )
 
 var dbmem map[string]*AnnotationMapValue
@@ -178,6 +179,7 @@ func main() {
 	//manager.ServeTo(router)
 
 	binManager := BinindexRouter{dbindex, dbmem, "omero", omero}
+	//TODO Rename Omero
 	binManager.ServeTo(router)
 
 	router.HandleFunc("/version", func(w http.ResponseWriter, r *http.Request) {
@@ -189,7 +191,7 @@ func main() {
 			w.Write([]byte("{'error':'not found'}"))
 		}
 	})
-	router.Use(cred)
+	router.Use(nbdata.Cred)
 	go http.ListenAndServe(":"+strconv.Itoa(port), router)
 
 	//TODO Process Updating Data
