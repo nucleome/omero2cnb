@@ -13,11 +13,10 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/lib/pq"
-	"github.com/nimezhu/data"
 )
 
 var dbmem map[string]*AnnotationMapValue
-var dbindex map[string]*data.BinIndexMap
+var dbindex map[string]*BinIndexMap
 var db *sql.DB
 
 const AppName string = "Omerome Browser"
@@ -33,7 +32,7 @@ func dbindexInsert(d *AnnotationMapValue) {
 		if arr, ok := parseRegions(d.Value, prefix, k); ok {
 			for _, v := range arr {
 				if _, ok1 := dbindex[v.Genome()]; !ok1 {
-					dbindex[v.Genome()] = data.NewBinIndexMap()
+					dbindex[v.Genome()] = NewBinIndexMap()
 				}
 				dbindex[v.Genome()].Insert(v)
 			}
@@ -145,7 +144,7 @@ func main() {
 	var err error
 	db, err = sql.Open("postgres", conninfo)
 	dbmem = map[string]*AnnotationMapValue{}
-	dbindex = map[string]*data.BinIndexMap{}
+	dbindex = map[string]*BinIndexMap{}
 	defer db.Close()
 
 	if err != nil {

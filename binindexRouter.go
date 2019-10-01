@@ -8,11 +8,10 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/nimezhu/data"
 )
 
 type BinindexRouter struct {
-	index  map[string]*data.BinIndexMap
+	index  map[string]*BinIndexMap
 	mem    map[string]*AnnotationMapValue
 	dbname string
 	omero  string //omero url
