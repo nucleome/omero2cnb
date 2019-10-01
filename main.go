@@ -14,6 +14,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/lib/pq"
 	"github.com/nimezhu/nbdata"
+	"github.com/rs/cors"
 )
 
 var dbmem map[string]*AnnotationMapValue
@@ -177,7 +178,6 @@ func main() {
 	//add manager
 	//manager := Manager{dbmem, ""}
 	//manager.ServeTo(router)
-
 	binManager := BinindexRouter{dbindex, dbmem, "omero", omero}
 	//TODO Rename Omero
 	binManager.ServeTo(router)
@@ -191,7 +191,10 @@ func main() {
 		}
 	})
 	router.Use(nbdata.Cred)
-	go http.ListenAndServe(":"+strconv.Itoa(port), router)
+	corsOptions := nbdata.GetCors("")
+	c := cors.New(corsOptions)
+	handler := c.Handler(router)
+	go http.ListenAndServe(":"+strconv.Itoa(port), handler)
 
 	//TODO Process Updating Data
 	reportProblem := func(ev pq.ListenerEventType, err error) {
