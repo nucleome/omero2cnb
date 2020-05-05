@@ -1,1 +1,2 @@
-# omero2cnb
+# NucleIndexOMERO
+  previous name : omero2cnb
