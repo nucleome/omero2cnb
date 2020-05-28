@@ -3,7 +3,7 @@
 ## Introduction
 OMERO use PostgreSQL database to store annotation information of images.
 Omero2cnb extracts and monitors the key-value map stored in annotation_mapvalue table in PostgreSQL database.
-If any key is "regions",  and value format is "genome:chromosome:start-end;...", omero2cnb will
+If any key is "regions",  and value format is `genome:chromosome:start-end;...` , such as `hg38:chr1:1-20000;hg38:chr1:30000-40000`, omero2cnb will
 parse this values into genome coordinates and put them into a memory [bin indexing](http://genomewiki.ucsc.edu/index.php/Bin_indexing_system) structure and provides a web data service http://127.0.0.1:3721 of query genome choordinates for Nucleome Browser.
 
 Omero2cnb monitors the change of annotation_mapvalue table every 90 seconds.
