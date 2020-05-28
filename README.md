@@ -18,3 +18,12 @@ go get github.com/nimezhu/omero2cnb
 ```
 omero2cnb [db_host] [dbname] [db_user] [db_passwd] [omero_web_server]
 ```
+
+## Docker
+- [omero-cnb in Docker Hub](https://hub.docker.com/repository/docker/nimezhu/cnb-index-omero)
+- [Dockerfile in GitHub](https://github.com/nimezhu/cnb-index-omero-docker)
+
+## Docker Compose with OMERO
+User can start a docker compose along with OMERO and OMERO-web.
+- [Docker compose file](https://gist.github.com/nimezhu/920130590d9a288be61d35971e11857f)
+
