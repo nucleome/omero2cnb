@@ -8,6 +8,7 @@ parse this values into genome coordinates and put them into a memory binning ind
 
 Omero2cnb monitors the change of annotation_mapvalue table every 90 seconds.
 
+If you want publish this data service to world wide web, please use reverse proxy software such nginx or traefik.
 
 ## Install
 ```
