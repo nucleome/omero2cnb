@@ -16,5 +16,5 @@ go get github.com/nimezhu/omero2cnb
 
 ## Usage
 ```
-omero2cnb [db_host] [dbname] [db_user] [db_passwd] [omero_server]
+omero2cnb [db_host] [dbname] [db_user] [db_passwd] [omero_web_server]
 ```
