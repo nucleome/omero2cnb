@@ -1,4 +1,5 @@
-# Running title: OMERO2CNB
+# Running title: OMERO2CNB  
+  NB-Index-OMERO
 
 ## Introduction
 OMERO use PostgreSQL database to store annotation information of images.
